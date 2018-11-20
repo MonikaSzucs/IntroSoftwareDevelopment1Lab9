@@ -89,10 +89,11 @@ public class Canada
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * 
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @param   province the user typed in
+     * @return  the name of the capital city or null
+     * @return  null if cannot find any provinces matched
      */
     public String getCapitalCityOf(String province)
     {
@@ -115,7 +116,14 @@ public class Canada
         return null;
 
     }
-
+    
+    /**
+     * 
+     *
+     * @param   province the user typed in
+     * @return  the name of the biggest city
+     * @return  null if cannot find any provinces matched
+     */
     public String getLargestCityOf(String province)
     {
 
@@ -137,7 +145,15 @@ public class Canada
         return null;
 
     }
-
+    
+    /**
+     * 
+     *
+     * @param   city the user typed in
+     * @return  the name of the province
+     * @return  null if cannot find any city matched
+     */
+    
     public String getProvinceWhoseCapitalIs(String city)
     {
 
@@ -159,7 +175,12 @@ public class Canada
         return null;
 
     }
-
+    
+    /**
+     * 
+     * @continue  if the province is null or empty
+     * Printing out the correct message depening on the province and city names found.
+     */
     public void displayAllProvinceInfo(){
 
         for(int i = 0; i<provinces.length; i++){
@@ -176,20 +197,27 @@ public class Canada
 
             if(provinces[i][NAME_OF_CAPITAL_CITY].toLowerCase() != provinces[i][NAME_OF_BIGGEST_CITY]){
                 int spacePos = 0;
-                if(provinces[i][NAME_OF_BIGGEST_CITY].contains(" ")){
+                if(provinces[i][NAME_OF_CAPITAL_CITY].contains(" ")){
                     spacePos = provinces[i][NAME_OF_CAPITAL_CITY].indexOf(' ');
                     System.out.println("The capital city of "+ provinces[i][NAME_OF_PROVINCE].toUpperCase() + " is " + provinces[i][NAME_OF_CAPITAL_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(1,spacePos) + provinces[i][NAME_OF_CAPITAL_CITY].substring(spacePos,spacePos+2).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(spacePos+2) + ", but the largest city is " + provinces[i][NAME_OF_BIGGEST_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_BIGGEST_CITY].substring(1));
                 }
-                else if(provinces[i][NAME_OF_CAPITAL_CITY].contains(" ")){
-                spacePos = provinces[i][NAME_OF_CAPITAL_CITY].indexOf(' ');
-                    System.out.println("The capital city of "+ provinces[i][NAME_OF_PROVINCE].toUpperCase() + " is " + provinces[i][NAME_OF_CAPITAL_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(1,spacePos) + provinces[i][NAME_OF_CAPITAL_CITY].substring(spacePos,spacePos+2).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(spacePos+2) + ", but the largest city is " + provinces[i][NAME_OF_BIGGEST_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_BIGGEST_CITY].substring(1));
+                else if(provinces[i][NAME_OF_BIGGEST_CITY].contains(" ")){
+                    spacePos = provinces[i][NAME_OF_BIGGEST_CITY].indexOf(' ');
+                    System.out.println("The capital city of "+ provinces[i][NAME_OF_PROVINCE].toUpperCase() + " is " + provinces[i][NAME_OF_CAPITAL_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(1) + ", but the largest city is " + provinces[i][NAME_OF_BIGGEST_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_BIGGEST_CITY].substring(1,spacePos) + provinces[i][NAME_OF_BIGGEST_CITY].substring(spacePos,spacePos+2).toUpperCase() + provinces[i][NAME_OF_BIGGEST_CITY].substring(spacePos+2));
                 }
                 else {
                     System.out.println("The capital city of "+ provinces[i][NAME_OF_PROVINCE].toUpperCase() + " is " + provinces[i][NAME_OF_CAPITAL_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(1)+", but the largest city is " + provinces[i][NAME_OF_BIGGEST_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_BIGGEST_CITY].substring(1));
                 }
             }
             else {
-                System.out.println("The capital city of "+ provinces[i][NAME_OF_PROVINCE].toUpperCase() + " is " + provinces[i][NAME_OF_CAPITAL_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(1)+", and it is also the largest city.");
+                int spacePos = 0;
+                if(provinces[i][NAME_OF_CAPITAL_CITY].contains(" ")){
+                    spacePos = provinces[i][NAME_OF_CAPITAL_CITY].indexOf(' ');
+                    System.out.println("The capital city of "+ provinces[i][NAME_OF_PROVINCE].toUpperCase() + " is " + provinces[i][NAME_OF_CAPITAL_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(1,spacePos) + provinces[i][NAME_OF_CAPITAL_CITY].substring(spacePos,spacePos+2).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(spacePos+2) +", and it is also the largest city.");
+                }
+                else{
+                    System.out.println("The capital city of "+ provinces[i][NAME_OF_PROVINCE].toUpperCase() + " is " + provinces[i][NAME_OF_CAPITAL_CITY].substring(0, 1).toUpperCase() + provinces[i][NAME_OF_CAPITAL_CITY].substring(1)+", and it is also the largest city.");
+                }
             }
 
         }
